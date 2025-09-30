@@ -3,14 +3,15 @@ import { DataTableActionProvider } from "@/components/data-table-providers";
 import TransactionTable from "@/components/transaction-table";
 
 export default async function ManageTransaction() {
-  const transactions = await db.query.transaction.findMany({
+  const transactions= await db.query.transaction.findMany({
     with: {
-      product: {
-        columns: {
-          name: true,
-          price: true
-        }
-      }
+      product: true
+      // {
+      //   columns: {
+      //     name: true,
+      //     price: true
+      //   }
+      // }
     }
   })
   return (
