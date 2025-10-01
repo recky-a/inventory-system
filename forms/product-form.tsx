@@ -72,11 +72,12 @@ export function ProductForm({
         <FormField
           control={form.control}
           name="stock"
-          render={({ field }) => (
+          render={({ field: { onChange, ...fieldController } }) => (
             <FormItem>
               <FormLabel>Jumlah Barang</FormLabel>
               <FormControl>
-                <Input type="number" {...field} />
+                <Input type="number" min={1} {...fieldController} onChange={(e) => onChange(parseInt(e.target.value))} />
+                {/* <Input type="number" {...field} /> */}
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -85,11 +86,12 @@ export function ProductForm({
         <FormField
           control={form.control}
           name="price"
-          render={({ field }) => (
+          render={({ field: { onChange, ...fieldController } }) => (
             <FormItem>
               <FormLabel>Harga</FormLabel>
               <FormControl>
-                <Input type="text" placeholder="10000.00" {...field} />
+                {/* <Input type="text" placeholder="10000.00" {...field} /> */}
+                <Input type="number" min={1} {...fieldController} onChange={(e) => onChange(parseInt(e.target.value))} />
               </FormControl>
               <FormMessage />
             </FormItem>

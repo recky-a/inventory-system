@@ -50,6 +50,27 @@ export const columns: ColumnDef<TransactionWithProduct>[] = [
       return <span>{formatted}</span>
     },
   },
+  {
+    id: "Nama Barang",
+    accessorKey: "product.name",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Nama Barang" />
+    ),
+  },
+  {
+    id: "Harga Barang",
+    accessorKey: "product.price",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Harga Barang" />
+    ),
+  },
+  {
+    id: "Qty",
+    accessorKey: "qty",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Qty" />
+    ),
+  },
   // {
   //   id: "Item Transaksi",
   //   accessorKey: "qty",
@@ -65,9 +86,9 @@ export const columns: ColumnDef<TransactionWithProduct>[] = [
   //   ),
   // },
   {
-    id: "Jumlah",
+    id: "Jumlah/Total",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Jumlah" />
+      <DataTableColumnHeader column={column} title="Jumlah/Total" />
     ),
     cell: ({ row }) => {
       if (row.original.total && row.original.total > 0) {
@@ -78,13 +99,6 @@ export const columns: ColumnDef<TransactionWithProduct>[] = [
       const subtotal = qty * price;
       return subtotal
     },
-  },
-  {
-    id: "Nama Barang",
-    accessorKey: "product.name",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Nama Barang" />
-    ),
   },
 
 ]
